@@ -9,11 +9,12 @@ const todoReducers = (state = initData,action)=>{
             const {id,data} = action.payload;
             return{
                 ...state,
-                data:[...state.initialData,{
+                initialData:[{
                     id:id,
                     data:data
-                }]
+                },...state.initialData]
             }
+        default:return initData;
     }
 }
 
