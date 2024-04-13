@@ -1,6 +1,8 @@
 // initial data for the state
+import dummyTask from "../../assets/dummyData";
 const initData = {
-    initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : []
+    initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : dummyTask 
+    // initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : []
 };
 
 const todoReducers = (state = initData, action) => {
