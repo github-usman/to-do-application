@@ -1,8 +1,10 @@
+// import dummyTask from "../../assets/dummyData"; 
+
+
 // initial data for the state
-import dummyTask from "../../assets/dummyData";
 const initData = {
-    initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : dummyTask 
-    // initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : []
+    // initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : dummyTask 
+    initialData: localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : []
 };
 
 const todoReducers = (state = initData, action) => {
@@ -30,7 +32,7 @@ const todoReducers = (state = initData, action) => {
             const toggledData = state.initialData.map(item =>
                 item.id === toggleId ? { ...item, isCompleted: !item.isCompleted } : item
             );
-            localStorage.setItem("todoList", JSON.stringify(toggledData)); // Save to localStorage
+            localStorage.setItem("todoList", JSON.stringify(toggledData)); // Save changes to localStorage
             return {
                 ...state,
                 initialData: toggledData
@@ -40,7 +42,7 @@ const todoReducers = (state = initData, action) => {
         case "DELETE_TODO":
             const deleteId = action.payload && action.payload.id;
             const newData = state.initialData.filter(ele => ele.id !== deleteId);
-            localStorage.setItem("todoList", JSON.stringify(newData)); // Save to localStorgae
+            localStorage.setItem("todoList", JSON.stringify(newData)); // update to localStorgae
             return {
                 ...state,
                 initialData: newData
