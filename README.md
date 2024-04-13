@@ -5,7 +5,7 @@
 clone the repo
 
 ```
-git clone git
+git clone git@github.com:github-usman/to-do-application.git
 ```
 
 ```
